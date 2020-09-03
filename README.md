@@ -62,10 +62,10 @@ _maven package_
 _mvn test_
 
 
-**_Para ejecutar las clases principales:_** 
+**_Para ejecutar la clase principal:_** 
  * _mvn exec:java -Dexec.mainClass="edu.eci.arsw.cinema.Main"_
  
  
- **_Y para probar el funcionamiento de las peticiones:_**
-  * _mvn clean compile_
-  * _mvn spring-boot:run_
+ **_... Y para probar el funcionamiento de las peticiones:_**
+ * _mvn clean compile_
+ * _mvn spring-boot:run_
