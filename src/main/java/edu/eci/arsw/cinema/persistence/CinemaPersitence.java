@@ -53,7 +53,11 @@ public interface CinemaPersitence {
     /**
      * 
      *  obtiene todos los cinemas
+     * @return 
+     * @throws edu.eci.arsw.cinema.persistence.CinemaPersistenceException
      */
-    public Set<Cinema> getCinemas();
+    public Set<Cinema> getCinemas() throws CinemaPersistenceException;
+
+    public List<CinemaFunction> getFunctionByName(String cinema, String date, String moviename) throws CinemaPersistenceException;
     
 }

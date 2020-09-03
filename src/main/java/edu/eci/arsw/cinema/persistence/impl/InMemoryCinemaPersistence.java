@@ -34,13 +34,24 @@ public class InMemoryCinemaPersistence implements CinemaPersitence{
     public InMemoryCinemaPersistence() {
         //load stub data
         String functionDate = "2018-12-18 15:30";
-        List<CinemaFunction> functions= new ArrayList<>();
+        List<CinemaFunction> functions1= new ArrayList<>();
+        List<CinemaFunction> functions2= new ArrayList<>();
+        List<CinemaFunction> functions3= new ArrayList<>();
         CinemaFunction funct1 = new CinemaFunction(new Movie("SuperHeroes Movie","Action"),functionDate);
         CinemaFunction funct2 = new CinemaFunction(new Movie("The Night","Horror"),functionDate);
-        functions.add(funct1);
-        functions.add(funct2);
-        Cinema c=new Cinema("cinemaX",functions);
-        cinemas.put("cinemaX", c);
+        CinemaFunction funct3 = new CinemaFunction(new Movie("Coraline","Horror"),functionDate);
+        CinemaFunction funct4 = new CinemaFunction(new Movie("Inception","Suspense"),functionDate);
+        CinemaFunction funct5 = new CinemaFunction(new Movie("Shrek","Comedy"),functionDate);
+        CinemaFunction funct6 = new CinemaFunction(new Movie("Shrek 2","Comedy"),functionDate);
+        functions1.add(funct1); functions1.add(funct2);
+        functions2.add(funct3); functions2.add(funct4);
+        functions3.add(funct5); functions3.add(funct6);        
+        Cinema c1=new Cinema("cinemaX",functions1);
+        Cinema c2=new Cinema("Cine", functions2);
+        Cinema c3=new Cinema("SuperCine",functions3);
+        cinemas.put("cinemaX", c1);
+        cinemas.put("Cine", c2);
+        cinemas.put("SuperCine", c3);
     }    
 
     /*La fila y columna no pueden menores de 1, y no pueden estar vacio el cinema, 
@@ -124,6 +135,29 @@ public class InMemoryCinemaPersistence implements CinemaPersitence{
     @Override
     public Set<Cinema> getCinemas() {
         return new HashSet(cinemas.values());
+    }
+
+    @Override
+    public List<CinemaFunction> getFunctionByName(String cinema, String date, String moviename) throws CinemaPersistenceException {
+        if(cinema == null){
+            throw new CinemaPersistenceException("El nombre del cinema a buscar no puede estar vacio");
+        }
+        if(!cinemas.containsKey(cinema)){
+            throw new CinemaPersistenceException("El cinema que busca no existe");
+        }
+        if(date== null){
+            throw new CinemaPersistenceException("No hay funciones en esta fecha");
+        }
+        if(moviename == null){
+            throw new CinemaPersistenceException("El nombre de la pelicula a buscar no puede estar vacio");
+        }
+        Cinema cine = getCinemaByName(cinema);
+        try {
+            cine.getFunctionByName(moviename);
+        } catch (CinemaException ex) {
+            throw new CinemaPersistenceException(ex.getMessage(), ex);
+        }
+        return null;
     }
 
 }

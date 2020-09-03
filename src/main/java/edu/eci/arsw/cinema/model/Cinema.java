@@ -50,6 +50,16 @@ public class Cinema {
         }
         return functionsDate;
     }
+    
+    public List<CinemaFunction> getFunctionByName(String name) throws CinemaException {
+        List<CinemaFunction> function = new ArrayList<>();
+        for (CinemaFunction func : functions) {
+            if (func.getMovie().equals(name)) {
+                function.add(func);
+            }            
+        }
+        return function;
+    }
 
     public void setSchedule(List<CinemaFunction> functions) {
         this.functions = functions;
