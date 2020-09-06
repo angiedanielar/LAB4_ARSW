@@ -51,6 +51,24 @@ public class CinemaServices {
             throw new CinemaException(ex.getMessage(), ex);
         }
     }
+    
+    public void addNewFunctionByCinema(String c, CinemaFunction f) throws CinemaException {
+        try {
+            cps.addFunctionByName(c, f);
+        } catch (CinemaPersistenceException ex) {
+            throw new CinemaException(ex.getMessage(), ex);
+            
+        }
+    }
+    
+    public void updateFunctionByCinema(String c, CinemaFunction f) throws CinemaException {
+        try {
+            cps.updateFunctionByName(c, f);
+        } catch (CinemaPersistenceException ex) {
+            throw new CinemaException(ex.getMessage(), ex);
+            
+        }
+    }
 
     /**
      * Obtiene todos los cinemas

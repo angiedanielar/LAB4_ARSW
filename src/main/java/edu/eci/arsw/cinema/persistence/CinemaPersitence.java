@@ -60,4 +60,7 @@ public interface CinemaPersitence {
 
     public List<CinemaFunction> getFunctionByName(String cinema, String date, String moviename) throws CinemaPersistenceException;
     
+    public void addFunctionByName(String cinema, CinemaFunction function) throws CinemaPersistenceException;
+    
+    public void updateFunctionByName(String cinema, CinemaFunction function) throws CinemaPersistenceException;
 }

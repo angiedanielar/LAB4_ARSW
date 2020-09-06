@@ -50,19 +50,41 @@ public class Cinema {
         }
         return functionsDate;
     }
-    
+
     public List<CinemaFunction> getFunctionByName(String name) throws CinemaException {
         List<CinemaFunction> function = new ArrayList<>();
         for (CinemaFunction func : functions) {
             if (func.getMovie().equals(name)) {
                 function.add(func);
-            }            
+            }
         }
         return function;
     }
 
     public void setSchedule(List<CinemaFunction> functions) {
         this.functions = functions;
+    }
+
+    public void addNewFunction(CinemaFunction function) throws CinemaException {
+        for (CinemaFunction func : functions) {
+            if (func.equals(function)) {
+                throw new CinemaException("La función que intenta añadir ya existe");
+            }
+        }
+        functions.add(function);
+    }
+
+    public void updateFunction(CinemaFunction function) throws CinemaException {
+        boolean updated = false;
+        for (CinemaFunction func : functions) {
+            if (func.getMovie().equals(function.getMovie()) && func.getDate().equals(function.getDate())) {
+                updated = true;
+                break;
+            }
+        }       
+        if (!updated) {
+            functions.add(function);
+        }
     }
 
     public CinemaFunction existeFuncion(String name, String date) throws CinemaException {
@@ -81,5 +103,5 @@ public class Cinema {
     public String toString() {
         return "Cinema{" + "name=" + name + ", functions=" + functions + '}';
     }
-    
+
 }
