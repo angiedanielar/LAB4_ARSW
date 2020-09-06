@@ -71,12 +71,12 @@ public class CinemaAPIController {
 
     //Métodos POST
     @RequestMapping(value = "/{name}", method = RequestMethod.POST)
-    public ResponseEntity<?> addNewFunction(@PathVariable String cinema, @RequestBody CinemaFunction function) {
+    public ResponseEntity<?> addNewFunction(@PathVariable String name, @RequestBody CinemaFunction function) {
         if (function.getMovie() == null || function.getDate() == null) {
             return new ResponseEntity<>("Bad Request - Invalid Parameters", HttpStatus.BAD_REQUEST);
         }
         try {
-            cinemaServices.addNewFunctionByCinema(cinema, function);
+            cinemaServices.addNewFunctionByCinema(name, function);
             return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (CinemaException ex) {
             Logger.getLogger(CinemaAPIController.class.getName()).log(Level.SEVERE, null, ex);
@@ -92,12 +92,12 @@ public class CinemaAPIController {
     
     //Métodos PUT
     @RequestMapping(value = "/{name}", method = RequestMethod.PUT)
-    public ResponseEntity<?> updateFunctionByName(@PathVariable String cinema, @RequestBody CinemaFunction function) {
+    public ResponseEntity<?> updateFunctionByName(@PathVariable String name, @RequestBody CinemaFunction function) {
         if (function.getMovie() == null || function.getDate() == null) {
             return new ResponseEntity<>("Bad Request - Invalid Parameters", HttpStatus.BAD_REQUEST);
         }
         try {
-            cinemaServices.addNewFunctionByCinema(cinema, function);
+            cinemaServices.addNewFunctionByCinema(name, function);
             return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (CinemaException ex) {
             Logger.getLogger(CinemaAPIController.class.getName()).log(Level.SEVERE, null, ex);

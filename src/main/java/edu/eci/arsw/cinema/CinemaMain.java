@@ -9,6 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class CinemaMain {
 
@@ -44,7 +45,7 @@ public class CinemaMain {
     private static Cinema registerCinema(String name) {
         Movie m = new Movie("Inception", "Suspense"); 
         Movie m2 = new Movie("Coraline", "Horror");
-        ArrayList<CinemaFunction> f = new ArrayList<>();        
+        CopyOnWriteArrayList<CinemaFunction> f = new CopyOnWriteArrayList<>();        
         CinemaFunction cf = new CinemaFunction(m, "2018-07-15 12:00");
         CinemaFunction cf2 = new CinemaFunction(m2, "2018-07-15 12:00");
         f.add(cf);

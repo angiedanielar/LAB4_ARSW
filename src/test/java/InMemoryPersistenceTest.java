@@ -6,6 +6,7 @@ import edu.eci.arsw.cinema.persistence.CinemaPersistenceException;
 import edu.eci.arsw.cinema.persistence.impl.InMemoryCinemaPersistence;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
@@ -25,7 +26,7 @@ public class InMemoryPersistenceTest {
         InMemoryCinemaPersistence ipct = new InMemoryCinemaPersistence();
 
         String functionDate = "2018-12-18 15:30";
-        List<CinemaFunction> functions = new ArrayList<>();
+        CopyOnWriteArrayList<CinemaFunction> functions = new CopyOnWriteArrayList<>();
         CinemaFunction funct1 = new CinemaFunction(new Movie("SuperHeroes Movie 2", "Action"), functionDate);
         CinemaFunction funct2 = new CinemaFunction(new Movie("The Night 2", "Horror"), functionDate);
         functions.add(funct1);
@@ -42,7 +43,7 @@ public class InMemoryPersistenceTest {
         InMemoryCinemaPersistence ipct = new InMemoryCinemaPersistence();
 
         String functionDate = "2018-12-18 15:30";
-        List<CinemaFunction> functions = new ArrayList<>();
+        CopyOnWriteArrayList<CinemaFunction> functions = new CopyOnWriteArrayList<>();
         CinemaFunction funct1 = new CinemaFunction(new Movie("SuperHeroes Movie 2", "Action"), functionDate);
         CinemaFunction funct2 = new CinemaFunction(new Movie("The Night 2", "Horror"), functionDate);
         functions.add(funct1);
@@ -55,7 +56,7 @@ public class InMemoryPersistenceTest {
             fail("Cinema persistence failed inserting the first cinema.");
         }
 
-        List<CinemaFunction> functions2 = new ArrayList<>();
+        CopyOnWriteArrayList<CinemaFunction> functions2 = new CopyOnWriteArrayList<>();
         CinemaFunction funct12 = new CinemaFunction(new Movie("SuperHeroes Movie 3", "Action"), functionDate);
         CinemaFunction funct22 = new CinemaFunction(new Movie("The Night 3", "Horror"), functionDate);
         functions.add(funct12);
@@ -73,7 +74,7 @@ public class InMemoryPersistenceTest {
     public void shouldNotAddRepeatedCinema() {
         InMemoryCinemaPersistence ipct = new InMemoryCinemaPersistence();
 
-        List<CinemaFunction> functions = new ArrayList<>();
+        CopyOnWriteArrayList<CinemaFunction> functions = new CopyOnWriteArrayList<>();
         Cinema c1 = new Cinema("Movies Bogotá", functions);
         Cinema c2 = new Cinema("Movies Bogotá", functions);
         try {
@@ -88,7 +89,7 @@ public class InMemoryPersistenceTest {
     public void shouldNotAddNullCinema() {
         InMemoryCinemaPersistence ipct = new InMemoryCinemaPersistence();
 
-        List<CinemaFunction> functions = new ArrayList<>();
+        CopyOnWriteArrayList<CinemaFunction> functions = new CopyOnWriteArrayList<>();
         Cinema c1 = new Cinema("Movies Bogotá", functions);
         Cinema c2 = new Cinema("", functions);
         try {
@@ -104,7 +105,7 @@ public class InMemoryPersistenceTest {
         InMemoryCinemaPersistence ipct = new InMemoryCinemaPersistence();
 
         String functionDate = "2018-12-18 15:30";
-        List<CinemaFunction> functions = new ArrayList<>();
+        CopyOnWriteArrayList<CinemaFunction> functions = new CopyOnWriteArrayList<>();
         CinemaFunction funct1 = new CinemaFunction(new Movie("SuperHeroes Movie 2", "Action"), functionDate);
         functions.add(funct1);
         Cinema c = new Cinema("Movies Bogotá", functions);
@@ -122,7 +123,7 @@ public class InMemoryPersistenceTest {
         InMemoryCinemaPersistence ipct = new InMemoryCinemaPersistence();
 
         String functionDate = "2018-12-18 15:30";
-        List<CinemaFunction> functions = new ArrayList<>();
+        CopyOnWriteArrayList<CinemaFunction> functions = new CopyOnWriteArrayList<>();
         CinemaFunction funct1 = new CinemaFunction(new Movie("SuperHeroes Movie 2", "Action"), functionDate);
         functions.add(funct1);
         Cinema c = new Cinema("Movies Bogotá", functions);
@@ -140,7 +141,7 @@ public class InMemoryPersistenceTest {
         InMemoryCinemaPersistence ipct = new InMemoryCinemaPersistence();
 
         String functionDate = "2018-12-18 15:30";
-        List<CinemaFunction> functions = new ArrayList<>();
+        CopyOnWriteArrayList<CinemaFunction> functions = new CopyOnWriteArrayList<>();
         CinemaFunction funct1 = new CinemaFunction(new Movie("SuperHeroes Movie 2", "Action"), functionDate);
         functions.add(funct1);
         Cinema c = new Cinema("Movies Bogotá", functions);
@@ -158,7 +159,7 @@ public class InMemoryPersistenceTest {
         InMemoryCinemaPersistence ipct = new InMemoryCinemaPersistence();
 
         String functionDate = "2018-12-18 15:30";
-        List<CinemaFunction> functions = new ArrayList<>();
+        CopyOnWriteArrayList<CinemaFunction> functions = new CopyOnWriteArrayList<>();
         CinemaFunction funct1 = new CinemaFunction(new Movie("SuperHeroes Movie 2", "Action"), functionDate);
         functions.add(funct1);
         Cinema c = new Cinema("Movies Bogotá", functions);
@@ -176,7 +177,7 @@ public class InMemoryPersistenceTest {
         InMemoryCinemaPersistence ipct = new InMemoryCinemaPersistence();
 
         String functionDate = "2018-12-18 15:30";
-        List<CinemaFunction> functions = new ArrayList<>();
+        CopyOnWriteArrayList<CinemaFunction> functions = new CopyOnWriteArrayList<>();
         CinemaFunction funct1 = new CinemaFunction(new Movie("SuperHeroes Movie 2", "Action"), functionDate);
         functions.add(funct1);
         Cinema c = new Cinema("Movies Bogotá", functions);
@@ -194,7 +195,7 @@ public class InMemoryPersistenceTest {
         InMemoryCinemaPersistence ipct = new InMemoryCinemaPersistence();
 
         String functionDate = "2018-12-18 15:30";
-        List<CinemaFunction> functions = new ArrayList<>();
+        CopyOnWriteArrayList<CinemaFunction> functions = new CopyOnWriteArrayList<>();
         CinemaFunction funct1 = new CinemaFunction(new Movie("SuperHeroes Movie 2", "Action"), functionDate);
         functions.add(funct1);
         Cinema c = new Cinema("Movies Bogotá", functions);

@@ -17,6 +17,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.stereotype.Service;
@@ -28,14 +30,14 @@ import org.springframework.stereotype.Service;
 @Service("EnMemoria")
 public class InMemoryCinemaPersistence implements CinemaPersitence {
 
-    private final Map<String, Cinema> cinemas = new HashMap<>();
+    private final ConcurrentHashMap<String, Cinema> cinemas = new ConcurrentHashMap<>();
 
     public InMemoryCinemaPersistence() {
         //load stub data
         String functionDate = "2018-12-18 15:30";
-        List<CinemaFunction> functions1 = new ArrayList<>();
-        List<CinemaFunction> functions2 = new ArrayList<>();
-        List<CinemaFunction> functions3 = new ArrayList<>();
+        CopyOnWriteArrayList<CinemaFunction> functions1 = new CopyOnWriteArrayList<>();
+        CopyOnWriteArrayList<CinemaFunction> functions2 = new CopyOnWriteArrayList<>();
+        CopyOnWriteArrayList<CinemaFunction> functions3 = new CopyOnWriteArrayList<>();
         CinemaFunction funct1 = new CinemaFunction(new Movie("SuperHeroes Movie", "Action"), functionDate);
         CinemaFunction funct2 = new CinemaFunction(new Movie("The Night", "Horror"), functionDate);
         CinemaFunction funct3 = new CinemaFunction(new Movie("Coraline", "Horror"), functionDate);
@@ -68,7 +70,7 @@ public class InMemoryCinemaPersistence implements CinemaPersitence {
             throw new CinemaPersistenceException("El nombre del cine no puede estar vacio");
         };
         if (date == null) {
-            throw new CinemaPersistenceException("La fecha puede estar vacia");
+            throw new CinemaPersistenceException("La fecha no puede estar vacia");
         };
         if (movieName == null) {
             throw new CinemaPersistenceException("El nombre de la pelicula no puede estar vacio");

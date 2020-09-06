@@ -6,6 +6,7 @@ import edu.eci.arsw.cinema.filter.*;
 import edu.eci.arsw.cinema.services.CinemaServices;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static org.junit.Assert.*;
@@ -25,7 +26,7 @@ public class CinemaFilterTest {
 
         Movie m = new Movie("Inception", "Suspense");
         Movie m2 = new Movie("Coraline", "Horror");
-        ArrayList<CinemaFunction> f = new ArrayList<>();
+        CopyOnWriteArrayList<CinemaFunction> f = new CopyOnWriteArrayList<>();
         CinemaFunction cf = new CinemaFunction(m, "2018-07-15 12:00");
         CinemaFunction cf2 = new CinemaFunction(m2, "2018-07-15 12:00");
         f.add(cf);
@@ -50,7 +51,7 @@ public class CinemaFilterTest {
 
         Movie m = new Movie("Inception", "Suspense");
         Movie m2 = new Movie("Coraline", "Horror");
-        ArrayList<CinemaFunction> f = new ArrayList<>();
+        CopyOnWriteArrayList<CinemaFunction> f = new CopyOnWriteArrayList<>();
         CinemaFunction cf = new CinemaFunction(m, "2018-07-15 12:00");
         CinemaFunction cf2 = new CinemaFunction(m2, "2018-07-15 12:00");
         f.add(cf);
