@@ -28,7 +28,7 @@ _POST para agregar una nueva función:_
 _PUT para actualizar una función ya existente:_
 ![alt text](https://raw.githubusercontent.com/angiedanielar/LAB4_ARSW/master/img/6.png)
 ### _Parte III_
-  * _Qué condiciones de carrera se podrían presentar?: Es posible que dos personas compren el mismo asiento si lo hacen al tiempo, ya que para ambos la verificacion de asiento vacio va ser igual. Es posible que se compre un tiquete justo cuando alguien este consultando su disponibilidad y le arroje una disponibilidad erronea. Si se realiza una modificación en alguna función, se agrega alguna función o cinema, esto afectará cualquier otra operacion que dependa de ellas. _
+  * _Qué condiciones de carrera se podrían presentar?: Es posible que dos personas compren el mismo asiento si lo hacen al tiempo, ya que para ambos la verificacion de asiento vacio va ser igual. Es posible que se compre un tiquete justo cuando alguien este consultando su disponibilidad y le arroje una disponibilidad erronea. Si se realiza una modificación en alguna función, se agrega alguna función o cinema, esto afectará cualquier otra operacion que dependa de ellas._
   
   
   * _Cuales son las respectivas regiones críticas?: Operaciones sobre los cines, sus funciones y sus asientos._
